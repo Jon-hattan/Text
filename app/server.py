@@ -9,6 +9,9 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
+a=[]
+total_sum=0
+num=0
 export_file_url = 'https://www.dropbox.com/s/1jxd7rjm9a5csjl/legitlanguage.pkl?dl=1'
 export_file_name = 'legitlanguage.pkl'
 
@@ -59,10 +62,14 @@ async def homepage(request):
 async def analyze(request):
     req = await request.form()
     input_text= req['input-text']
-
+    
+    
     prediction = learn.predict(input_text)[0]
     return JSONResponse({'result': str(prediction)})
-
+    score=int(prediction)
+    total_sum += score
+    num+=1
+    average = total_sum/num
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
