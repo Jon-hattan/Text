@@ -19,6 +19,7 @@ function analyze() {
       } else {
         el("result-label").innerHTML = `${response["result"]}`;
       }
+      el("Average-score").innerHTML = 'Average Score is' + average ;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
@@ -26,6 +27,6 @@ function analyze() {
   var fileData = new FormData();
   fileData.append("input-text", el("input-text").value);
   xhr.send(fileData);
-  el("Average-score").innerHTML = 'Average Score is' + average ;
+  
 }
 
