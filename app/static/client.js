@@ -19,7 +19,7 @@ function analyze() {
       } else {
         el("result-label").innerHTML = `${response["result"]}`;
       }
-      el("Average-score").innerHTML = 'Average Score is' + average ;
+      el("result-label").innerHTML = 'Average Score is' + average ;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
